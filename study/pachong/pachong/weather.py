@@ -22,6 +22,6 @@ def get_weather(city_pinyin):
 
 if __name__ == "__main__":
     pin = xpinyin.Pinyin()
-    city_pinyin = pin.get_pinyin("北京", "")
+    city_pinyin = pin.get_pinyin("广州", "")
     today_weather = get_weather(city_pinyin)
     print(today_weather)
