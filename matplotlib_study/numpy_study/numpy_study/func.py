@@ -53,6 +53,8 @@ plt.hist(random_list, 1000)
 plt.show()
 
 # 正态分布
+# loc 均值
+# scale标准差
 data2 = numpy.random.normal(loc=1.75, scale=0.1, size=1000000)
 plt.figure(figsize=(20, 8), dpi=80)
 plt.hist(data2, 1000)
