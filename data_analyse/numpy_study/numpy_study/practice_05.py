@@ -24,7 +24,6 @@ print(temp)
 temp = numpy.concatenate((a, b.T), axis=1)
 print(temp)
 
-
 stock_change = numpy.random.normal(loc=0, scale=1, size=(8, 10))
 a = stock_change[:2, 0:4]
 b = stock_change[4:6, 0:4]
@@ -42,4 +41,10 @@ print(temp)
 temp = numpy.split(x, [3, 5, 6, 9])
 print(temp)
 
+# 提取某一列
+x = [[1, 2, 3],
+     [4, 5, 6]]
 
+data = numpy.array(x)
+first_col = data[:, 0]
+print(first_col)

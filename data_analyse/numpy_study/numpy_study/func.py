@@ -37,12 +37,11 @@ print('data3',data3)
 # 生成固定长度的数组
 # 范围[0, 10]等距离生成100个数
 lin_list = numpy.linspace(0, 10, 100)
-print(lin_list)
+print('lin_list',lin_list)
 # [a, b]范围，c是步长
 # ran_list = numpy.arange(a, b ,c)
 ran_list = numpy.arange(0, 10, 0.5)
 print(ran_list)
-
 
 #生成随机数组
 random_list = numpy.random.uniform(low=-1, high=1, size=1000000)

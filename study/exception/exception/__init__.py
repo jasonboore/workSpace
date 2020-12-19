@@ -9,6 +9,9 @@ print('Hello')
 # finally；
 #     代码块（无论是否出现异常都执行）
 
+x = 1
+x += 10
+print(x)
 try:
     print(10 / 0)
 except:
