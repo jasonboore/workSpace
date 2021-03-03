@@ -1,6 +1,10 @@
 import numpy as np
 import pandas as pd
 
+"""
+    series可以看做一个一维的字典
+    可以通过哈希表查找
+"""
 stack_change = np.random.normal(0, 1, (10, 5))
 stock = ['股票{}'.format(i) for i in range(10)]
 # 添加列索引

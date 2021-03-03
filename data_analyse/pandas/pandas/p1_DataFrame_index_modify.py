@@ -1,6 +1,10 @@
 import numpy as np
 import pandas as pd
 
+"""
+    dataframe可以看作是一个二维的字典
+    通过索引查找数据
+"""
 stack_change = np.random.normal(0, 1, (10, 5))
 stock = ['股票{}'.format(i) for i in range(10)]
 # 添加列索引

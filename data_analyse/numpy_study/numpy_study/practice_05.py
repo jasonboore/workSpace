@@ -47,4 +47,8 @@ x = [[1, 2, 3],
 
 data = numpy.array(x)
 first_col = data[:, 0]
+print('*' * 10)
+d = data[0:2, 0:2]
+print(d)
+print('*' * 10)
 print(first_col)

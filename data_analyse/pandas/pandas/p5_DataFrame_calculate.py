@@ -35,6 +35,7 @@ print(data1)
 print('-' * 30)
 data.iloc[0][5] = 0.474013
 data.iloc[1][5] = 0.178138
+print(data)
 print(data['open'].isin([0.474013, 0.178138]))
 # 统计运算
 print('-' * 30)
@@ -69,3 +70,5 @@ print(data5)
 # Pandas画图
 data.plot(x='open', y='close', kind='scatter')
 plt.show()
+
+print(data['open'])
