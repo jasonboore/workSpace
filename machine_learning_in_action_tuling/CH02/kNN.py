@@ -3,12 +3,24 @@ import matplotlib.pyplot as plt
 from os import listdir
 
 def createDataSet():
+    """
+    创建数据集练习
+    :return:
+    """
     group = np.array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
     labels = ['A', 'A', 'B', 'B']
     return group, labels
 
 
 def classify0(inX, dataSet, labels, k):
+    """
+    k-邻近算法
+    :param inX:用于分类的向量
+    :param dataSet:输入的训练的样本
+    :param labels:标签向量
+    :param k:选择最近邻居的数目
+    :return:预测的结果
+    """
     dataSetSize = dataSet.shape[0]
     diffMat = np.tile(inX, (dataSetSize, 1)) - dataSet
     sqDiffMat = diffMat ** 2
@@ -24,6 +36,11 @@ def classify0(inX, dataSet, labels, k):
 
 
 def file2matrix(filename):
+    """
+    将文件中的数据集变成矩阵
+    :param filename: 文件路径名字
+    :return: 返回特征值矩阵和标签向量
+    """
     fr = open(filename)
     arrayOLines = fr.readlines()
     numberOfLines = len(arrayOLines)
@@ -40,6 +57,14 @@ def file2matrix(filename):
 
 
 def scatterLegend(data, label, x, y):
+    """
+    将数据按照图例的形式显示
+    :param data: 数据集
+    :param label: 标签向量
+    :param x: 横轴向量
+    :param y: 纵轴向量
+    :return: None
+    """
     type1 = []
     type2 = []
     type3 = []
@@ -63,6 +88,11 @@ def scatterLegend(data, label, x, y):
 
 
 def autoNorm(dataset):
+    """
+    归一化特征值
+    :param dataset: 数据集
+    :return:
+    """
     minVals = dataset.min(0)
     maxVals = dataset.max(0)
     ranges = maxVals - minVals
@@ -74,6 +104,10 @@ def autoNorm(dataset):
 
 
 def datingClassTest():
+    """
+    分类器针对约会网站的测试
+    :return:
+    """
     hoRatio = 0.10
     datingDataMat, datingLabels = file2matrix('datingTestSet2.txt')
     norMat, ranges, minvals = autoNorm(datingDataMat)
@@ -89,6 +123,10 @@ def datingClassTest():
 
 
 def classifyPerson():
+    """
+    约会网站预备数据
+    :return: 预测结果
+    """
     resultList = ['not at all', 'in small doses', 'in large doses']
     percentTats = float(input("percentage of time spent playing video games?"))
     ffMiles = float(input("frequent flier miles earned per year?"))
@@ -101,6 +139,11 @@ def classifyPerson():
 
 
 def img2vector(filename):
+    """
+    将32*32的矩阵转换成1*1024的向量
+    :param filename:
+    :return:
+    """
     returnVector = np.zeros((1, 1024))
     fr = open(filename)
     for i in range(32):
@@ -111,6 +154,10 @@ def img2vector(filename):
 
 
 def handwritingClassTest():
+    """
+    手写数字识别系统的测试
+    :return:
+    """
     hwLabels = []
     trainingFileList = listdir('digits/trainingDigits')
     m = len(trainingFileList)
@@ -138,9 +185,11 @@ def handwritingClassTest():
 
 
 if __name__ == '__main__':
+
     # group, labels = createDataSet()
     # print(group)
     # print(labels)
+
     datingDataMat, datingLabels = file2matrix('datingTestSet2.txt')
 
     # print(datingDataMat)
