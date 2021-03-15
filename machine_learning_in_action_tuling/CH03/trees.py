@@ -1,6 +1,7 @@
 from math import log
 from machine_learning_in_action_tuling.CH03 import treePlotter
 
+
 def calShannonEnt(dataset):
     """
     计算给定数据集的熵
@@ -99,16 +100,13 @@ def createTree(dataset, labels):
     bestFeat = chooseBestFeatureToSplit(dataset)
     bestFeatLabel = labels[bestFeat]
     myTree = {bestFeatLabel: {}}
-    del(labels[bestFeat])
+    del (labels[bestFeat])
     featValues = [example[bestFeat] for example in dataset]
     uniqueVals = set(featValues)
     for value in uniqueVals:
         subLabels = labels[:]
         myTree[bestFeatLabel][value] = createTree(splitDataSet(dataset, bestFeat, value), subLabels)
     return myTree
-
-
-
 
 
 def classify(inputTree, featLabels, testVec):
@@ -124,7 +122,6 @@ def classify(inputTree, featLabels, testVec):
     return classLabel
 
 
-
 def storeTree(inputTree, filename):
     import pickle
     fw = open(filename, 'wb+')
@@ -138,15 +135,11 @@ def grabTree(filename):
     return pickle.load(fr)
 
 
-
-
-
 if __name__ == '__main__':
     # myDat, labels = createDataSet()
 
     # subDataSet = splitDataSet(myDat, 0, 1)
     # print(subDataSet)
-
 
     # print(chooseBestFeatureToSplit(myDat))
 
@@ -155,10 +148,8 @@ if __name__ == '__main__':
     # print(classify(myTree, labels, [1, 0]))
     # print(classify(myTree, labels, [1, 1]))
 
-
     # storeTree(myTree, 'classifierStorage.txt')
     # print(grabTree('classifierStorage.txt'))
-
 
     fr = open('lenses.txt')
     lesens = [inst.strip().split('\t') for inst in fr.readlines()]
@@ -166,4 +157,3 @@ if __name__ == '__main__':
     lensesTree = createTree(lesens, lensesLabels)
     print(lensesTree)
     treePlotter.createPlot(lensesTree)
-
